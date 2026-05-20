@@ -3,17 +3,17 @@ title: "About"
 description: "A bit about me and this blog."
 ---
 
-AstroPaper is a minimal, accessible and SEO-friendly blog theme built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
+Airi paper is a minimal English blog built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
 
 ![Astro Paper](@/assets/images/astropaper-og.jpg)
 
-AstroPaper provides a solid foundation for blogs, or even portfolios\_ with full markdown support, built-in dark mode, and a clean layout that works out-of-the-box.
+Airi paper is designed for clear writing, fast pages, and a comfortable reading experience across desktop and mobile.
 
-The blog posts in this theme also serve as guides, docs or example articles\_ making AstroPaper a flexible starting point for your next content-driven site.
+Posts are written in Markdown or MDX, which keeps publishing simple while still supporting rich technical content.
 
 ## Features
 
-AstroPaper comes with a set of useful features that make content publishing easy and effective:
+Airi paper keeps the useful parts of the original theme:
 
 - SEO-friendly
 - Fast performance
@@ -26,12 +26,6 @@ AstroPaper comes with a set of useful features that make content publishing easy
 
 and so much more.
 
-## Show your support
+## Contact
 
-If you like [AstroPaper](https://github.com/satnaing/astro-paper), consider giving it a star ⭐️.
-
-Found a bug 🐛 or have an improvement ✨ in mind? Feel free to open an [issue](https://github.com/satnaing/astro-paper/issues), submit a [pull request](https://github.com/satnaing/astro-paper/pulls) or start a [discussion](https://github.com/satnaing/astro-paper/discussions).
-
-If you find this theme helpful, you can also [sponsor me on GitHub](https://github.com/sponsors/satnaing) or [buy me a coffee](https://buymeacoffee.com/satnaing) to show your support — every penny counts.
-
-Kyay zuu! 🙏🏼
+This site is still being shaped. More writing and project notes will be added over time.
