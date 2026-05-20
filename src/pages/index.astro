@@ -59,12 +59,12 @@ const hasPosts = sortedPosts.length > 0;
       </a>
 
       <p class="text-muted-foreground mt-8 max-w-2xl text-xl leading-8">
-        A dark, focused workspace for papers, reading notes, and technical
+        A focused workspace for papers, reading notes, and technical
         essays. Built to feel closer to a utility dashboard than a plain blog.
       </p>
       <p class="mt-6">
         <LinkButton
-          class="border-border hover:border-accent hover:text-accent rounded-lg border bg-white/[0.04] px-5 py-3 text-sm font-semibold tracking-wide uppercase"
+          class="border-border bg-background/60 hover:border-accent hover:text-accent rounded-lg border px-5 py-3 text-sm font-semibold tracking-wide uppercase dark:bg-white/[0.04]"
           href={getRelativeLocaleUrl(locale, "posts")}
         >
           Browse papers

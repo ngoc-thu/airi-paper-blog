@@ -12,6 +12,13 @@
   body {
     @apply bg-background text-foreground antialiased;
     background:
+      radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 34rem),
+      radial-gradient(circle at top right, rgba(34, 211, 238, 0.16), transparent 28rem),
+      var(--color-background);
+  }
+
+  html[data-theme="dark"] body {
+    background:
       radial-gradient(circle at top left, rgba(110, 231, 249, 0.18), transparent 32rem),
       radial-gradient(circle at top right, rgba(167, 139, 250, 0.18), transparent 28rem),
       var(--color-background);
@@ -45,7 +52,7 @@
 }
 
 @utility glass-panel {
-  @apply border-border bg-white/[0.06] shadow-2xl shadow-black/25 backdrop-blur-xl;
+  @apply border-border bg-white/75 shadow-xl shadow-slate-200/70 backdrop-blur-xl dark:bg-white/[0.06] dark:shadow-2xl dark:shadow-black/25;
 }
 
 :target {

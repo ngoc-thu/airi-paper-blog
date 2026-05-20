@@ -341,8 +341,8 @@
 <style>
   .zo-language-switch {
     align-items: center;
-    background: rgba(15, 23, 42, 0.78);
-    border: 1px solid rgba(148, 163, 184, 0.24);
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(148, 163, 184, 0.34);
     border-radius: 14px;
     display: inline-flex;
     gap: 0.35rem;
@@ -352,7 +352,7 @@
 
   .zo-language-switch button {
     border-radius: 10px;
-    color: rgb(203, 213, 225);
+    color: rgb(71, 85, 105);
     font: inherit;
     font-size: 0.92rem;
     font-weight: 700;
@@ -364,6 +364,22 @@
   }
 
   .zo-language-switch button[aria-pressed="true"] {
+    background: linear-gradient(135deg, #2563eb, #22d3ee);
+    color: #ffffff;
+  }
+
+  :global(html[data-theme="dark"]) .zo-language-switch {
+    background: rgba(15, 23, 42, 0.78);
+    border-color: rgba(148, 163, 184, 0.24);
+  }
+
+  :global(html[data-theme="dark"]) .zo-language-switch button {
+    color: rgb(203, 213, 225);
+  }
+
+  :global(html[data-theme="dark"])
+    .zo-language-switch
+    button[aria-pressed="true"] {
     background: linear-gradient(135deg, #22d3ee, #a78bfa);
     color: #020617;
   }

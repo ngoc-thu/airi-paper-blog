@@ -13,13 +13,13 @@
 /* Light theme values */
 :root,
 [data-theme="light"] {
-  --background: #07111f;
-  --foreground: #eef6ff;
-  --accent: #6ee7f9;
+  --background: #f7f9fc;
+  --foreground: #172033;
+  --accent: #2563eb;
   --accent-foreground: #ffffff;
-  --muted: rgba(255, 255, 255, 0.08);
-  --muted-foreground: #a9bad1;
-  --border: rgba(255, 255, 255, 0.14);
+  --muted: #e8edf5;
+  --muted-foreground: #5b677d;
+  --border: #dbe3ef;
 }
 
 /* Dark theme values */
