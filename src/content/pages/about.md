@@ -5,15 +5,13 @@ description: "A bit about me and this blog."
 
 Airi paper is a minimal English blog built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
 
-![Astro Paper](@/assets/images/astropaper-og.jpg)
-
 Airi paper is designed for clear writing, fast pages, and a comfortable reading experience across desktop and mobile.
 
 Posts are written in Markdown or MDX, which keeps publishing simple while still supporting rich technical content.
 
 ## Features
 
-Airi paper keeps the useful parts of the original theme:
+Airi paper keeps the useful parts of a modern static journal:
 
 - SEO-friendly
 - Fast performance
