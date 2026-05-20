@@ -11,6 +11,8 @@ tags:
   - research-note
 ---
 
+<img src="/assets/zo-computer-hero.svg" alt="A visual map of Zo Computer as a personal cloud computer connected to files, tools, integrations, automations, and hosting." />
+
 ## Abstract
 
 Zo Computer is positioning itself as a personal cloud computer: a persistent, AI-assisted workspace that combines files, web access, app integrations, automation, and hosting inside a server the user controls. The product is not just another chatbot interface. Its more interesting claim is that AI becomes useful when it has durable context, access to real tools, and a place to run work even when the user is offline.
@@ -20,6 +22,8 @@ Zo Computer is positioning itself as a personal cloud computer: a persistent, AI
 The public homepage describes Zo as an always-on AI system that can build websites, run automations, manage files, and send updates through chat-style interfaces. The core metaphor is simple: instead of using AI only inside a chat window, the user gets a cloud computer where the AI can read files, write code, browse the web, connect to services, and host outputs.
 
 That makes Zo closer to an AI-native operating environment than a single-purpose productivity app. Its value depends less on any one model and more on how many useful actions the agent can safely perform inside the user’s workspace.
+
+<img src="/assets/zo-computer-workflow.svg" alt="A workflow diagram showing how a Zo prompt moves from conversation to context, tools, and durable outputs." />
 
 ## Product Model
 
