@@ -70,6 +70,59 @@ const isVi = locale === "vi";
           </li>
         </ol>
 
+        <h2>Request Lifecycle</h2>
+        <p>
+          A typical OpenClaw request starts as a normal message in a connected
+          channel. The channel adapter delivers that message to the gateway, and
+          the gateway decides which conversation scope it belongs to: a direct
+          chat, a group thread, a channel, a cron task, or another configured
+          entry point. That scope becomes the key used to recover the right
+          agent session.
+        </p>
+        <p>
+          After routing, OpenClaw prepares the execution context. It can include
+          the latest conversation history, workspace instructions, user profile
+          notes, tool availability, media references, and project files. The
+          agent then performs the work through approved tools, such as reading a
+          repository, editing files, running a build, opening a browser, or
+          sending a response. The gateway finally serializes the result back into
+          the original channel, including text, images, documents, or generated
+          media when supported.
+        </p>
+
+        <h2>Workspace And Memory</h2>
+        <p>
+          OpenClaw treats the workspace as the agent’s home base. Files such as
+          AGENTS, SOUL, USER, IDENTITY, TOOLS, HEARTBEAT, daily notes, and
+          optional long-term memory documents define how the agent should behave,
+          what local tools exist, what the user prefers, and which recurring
+          checks are allowed. This makes the assistant configurable through plain
+          files instead of hidden application state.
+        </p>
+        <p>
+          This design is important because personal agents need more than a
+          prompt. They need stable identity, local conventions, memory hygiene,
+          and explicit operating rules. The workspace gives the user a readable
+          place to inspect and change those rules, while still letting the agent
+          operate across chat, code, browser, media, and automation tasks.
+        </p>
+
+        <h2>Session Architecture</h2>
+        <p>
+          Sessions are the mechanism that keeps conversations coherent. OpenClaw
+          separates the stable conversation key from the active session id. A
+          Telegram direct chat, for example, can keep the same routing key while
+          receiving a fresh session after a reset, an idle timeout, a daily
+          rollover, or an explicit command such as starting a new conversation.
+        </p>
+        <p>
+          Underneath that model, session metadata and transcript files preserve
+          the history needed for continuity. Long conversations can be compacted
+          into summaries so the agent keeps the important state without carrying
+          every raw token forever. This is one of the reasons OpenClaw fits
+          ongoing operational work better than a stateless chat bot.
+        </p>
+
         <h2>Why It Matters</h2>
         <p>
           OpenClaw’s strongest idea is that the useful interface for AI is often
@@ -102,6 +155,13 @@ const isVi = locale === "vi";
           value depends on the same thing that makes it risky: proximity to real
           work.
         </p>
+        <p>
+          Good OpenClaw deployments should therefore use narrow permissions,
+          channel allowlists, explicit group-chat behavior, dedicated assistant
+          accounts where possible, conservative heartbeat settings, and clear
+          audit trails. The goal is not to make the agent passive. The goal is to
+          make its power legible, bounded, and recoverable.
+        </p>
 
         <h2>Use Cases</h2>
         <ul>
@@ -112,6 +172,20 @@ const isVi = locale === "vi";
           <li>Personal assistant workflows across WhatsApp, Telegram, and Zalo.</li>
           <li>Local skill creation for private datasets and household systems.</li>
         </ul>
+
+        <h2>Limitations</h2>
+        <p>
+          OpenClaw is infrastructure, so it inherits infrastructure concerns.
+          The user must manage credentials, channel permissions, host uptime,
+          dependency updates, and the boundary between useful autonomy and
+          unwanted action. It also depends on each messaging provider’s API
+          behavior, rate limits, media support, and account policies.
+        </p>
+        <p>
+          The product is strongest when configured intentionally: small trusted
+          surfaces first, clear tool permissions, careful logging, and gradual
+          expansion into more channels or higher-impact automations.
+        </p>
 
         <h2>Takeaway</h2>
         <p>
@@ -187,6 +261,56 @@ const isVi = locale === "vi";
           </li>
         </ol>
 
+        <h2>Vòng đời request</h2>
+        <p>
+          Một request điển hình trong OpenClaw bắt đầu như một tin nhắn bình
+          thường ở channel đã kết nối. Channel adapter chuyển tin nhắn đó vào
+          gateway, rồi gateway xác định nó thuộc phạm vi hội thoại nào: direct
+          chat, group thread, channel, cron task hoặc một entry point đã cấu
+          hình. Phạm vi này trở thành key để khôi phục đúng agent session.
+        </p>
+        <p>
+          Sau khi route xong, OpenClaw chuẩn bị context thực thi. Context có thể
+          gồm lịch sử hội thoại gần nhất, instruction trong workspace, ghi chú về
+          user, danh sách tool được phép dùng, media reference và project files.
+          Agent sau đó làm việc qua các tool đã được bật, ví dụ đọc repo, sửa
+          file, chạy build, mở browser hoặc gửi phản hồi. Cuối cùng gateway đóng
+          gói kết quả về lại channel ban đầu, gồm text, hình ảnh, tài liệu hoặc
+          media được tạo ra nếu channel hỗ trợ.
+        </p>
+
+        <h2>Workspace và memory</h2>
+        <p>
+          OpenClaw xem workspace như “nhà” của agent. Các file như AGENTS, SOUL,
+          USER, IDENTITY, TOOLS, HEARTBEAT, daily notes và memory dài hạn nếu có
+          định nghĩa agent nên cư xử thế nào, tool local nào tồn tại, người dùng
+          thích gì và các kiểm tra định kỳ nào được phép chạy. Nhờ vậy, assistant
+          được cấu hình bằng file plain text thay vì trạng thái ẩn trong app.
+        </p>
+        <p>
+          Thiết kế này quan trọng vì personal agent cần nhiều hơn một prompt. Nó
+          cần identity ổn định, convention local, memory hygiene và quy tắc vận
+          hành rõ ràng. Workspace cho người dùng một nơi dễ đọc để kiểm tra và
+          chỉnh các quy tắc đó, trong khi agent vẫn có thể làm việc qua chat,
+          code, browser, media và automation.
+        </p>
+
+        <h2>Kiến trúc session</h2>
+        <p>
+          Session là cơ chế giữ cho hội thoại mạch lạc. OpenClaw tách key hội
+          thoại ổn định khỏi session id đang active. Ví dụ, một direct chat trên
+          Telegram có thể giữ cùng routing key, nhưng nhận session mới sau khi
+          reset, quá idle, sang ngày mới hoặc khi người dùng chủ động bắt đầu
+          cuộc trò chuyện mới.
+        </p>
+        <p>
+          Bên dưới mô hình đó, session metadata và transcript files lưu lại lịch
+          sử cần thiết để giữ continuity. Hội thoại dài có thể được compact thành
+          summary để agent giữ phần state quan trọng mà không phải mang toàn bộ
+          raw token mãi mãi. Đây là một lý do OpenClaw hợp với công việc vận hành
+          dài hơi hơn một chatbot stateless.
+        </p>
+
         <h2>Vì sao nó quan trọng</h2>
         <p>
           Ý tưởng mạnh nhất của OpenClaw là giao diện hữu ích cho AI thường là
@@ -218,6 +342,13 @@ const isVi = locale === "vi";
           session có thể phục hồi và hành vi có thể audit. Giá trị của sản phẩm
           đến từ chính điều khiến nó rủi ro: nằm sát công việc thật.
         </p>
+        <p>
+          Vì vậy, một setup OpenClaw tốt nên dùng quyền hẹp, channel allowlist,
+          hành vi group chat rõ ràng, tài khoản assistant riêng khi có thể,
+          heartbeat thận trọng và audit trail dễ kiểm tra. Mục tiêu không phải
+          làm agent bị động, mà là làm sức mạnh của nó rõ ràng, có giới hạn và có
+          thể phục hồi.
+        </p>
 
         <h2>Use cases</h2>
         <ul>
@@ -228,6 +359,20 @@ const isVi = locale === "vi";
           <li>Personal assistant qua WhatsApp, Telegram và Zalo.</li>
           <li>Tạo local skill cho dữ liệu riêng và hệ thống trong nhà.</li>
         </ul>
+
+        <h2>Giới hạn cần lưu ý</h2>
+        <p>
+          OpenClaw là hạ tầng, nên nó cũng mang những vấn đề của hạ tầng. Người
+          dùng cần quản lý credentials, quyền của từng channel, uptime của host,
+          dependency updates và ranh giới giữa autonomy hữu ích với hành động
+          ngoài ý muốn. Nó cũng phụ thuộc vào API, rate limit, media support và
+          chính sách tài khoản của từng messaging provider.
+        </p>
+        <p>
+          Sản phẩm mạnh nhất khi được cấu hình có chủ đích: bắt đầu từ các bề mặt
+          nhỏ và đáng tin, phân quyền tool rõ ràng, logging cẩn thận, rồi mở rộng
+          dần sang nhiều channel hoặc automation có tác động lớn hơn.
+        </p>
 
         <h2>Kết luận</h2>
         <p>
@@ -259,6 +404,11 @@ const isVi = locale === "vi";
     <li>
       <a href="https://docs.openclaw.ai/start/showcase">
         OpenClaw showcase
+      </a>
+    </li>
+    <li>
+      <a href="https://docs.openclaw.ai/reference/session-management-compaction">
+        Session management and compaction
       </a>
     </li>
   </ul>
