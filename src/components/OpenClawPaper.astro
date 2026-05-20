@@ -1,0 +1,271 @@
+---
+const locale = Astro.currentLocale ?? "en";
+const isVi = locale === "vi";
+---
+
+<div class="openclaw-paper">
+  <img
+    src="/assets/openclaw-gateway-map.svg"
+    alt="A diagram showing OpenClaw as a self-hosted gateway between chat apps, AI agents, local tools, memory, files, and automations."
+  />
+
+  {
+    !isVi && (
+      <section>
+        <h2>Abstract</h2>
+        <p>
+          OpenClaw is a self-hosted gateway for turning chat channels into
+          operational interfaces for AI agents. Instead of asking users to live
+          inside a dedicated AI app, it connects familiar surfaces such as
+          Telegram, WhatsApp, Discord, Slack, Signal, iMessage, Microsoft Teams,
+          Zalo, and other channels to agents that can use tools, files, memory,
+          sessions, automations, and outbound messaging.
+        </p>
+
+        <h2>What OpenClaw Is</h2>
+        <p>
+          The core product idea is a gateway. Messages arrive from a channel,
+          OpenClaw maps them to an agent session, injects workspace context, lets
+          the agent call configured tools, and then sends the answer or generated
+          media back to the original surface. This turns ordinary chat into a
+          control plane for personal automation and coding work.
+        </p>
+        <p>
+          In practice, OpenClaw is not only a chat relay. It includes onboarding,
+          a gateway process, a dashboard, session storage, workspace memory,
+          skills, heartbeats, cron-style jobs, media handling, and channel
+          pairing controls. That combination makes it closer to an agent
+          operating layer than a single-purpose bot.
+        </p>
+
+        <img
+          src="/assets/openclaw-workflow.svg"
+          alt="A workflow diagram showing a message entering OpenClaw, mapping to a session, using workspace context and tools, then sending a reply back to the channel."
+        />
+
+        <h2>System Model</h2>
+        <p>OpenClaw is built around five important layers:</p>
+        <ol>
+          <li>
+            <strong>Channels:</strong> messaging surfaces such as Telegram,
+            WhatsApp, Discord, Slack, Signal, Matrix, Teams, iMessage, and Zalo.
+          </li>
+          <li>
+            <strong>Gateway:</strong> the process that owns routing, auth,
+            delivery, session state, and channel connections.
+          </li>
+          <li>
+            <strong>Agents:</strong> model-backed workers such as Codex, Pi,
+            Claude, or OpenAI-compatible agents.
+          </li>
+          <li>
+            <strong>Workspace:</strong> local instructions and memory files such
+            as AGENTS, SOUL, TOOLS, IDENTITY, USER, HEARTBEAT, daily notes, and
+            project files.
+          </li>
+          <li>
+            <strong>Tools and automations:</strong> shell access, file access,
+            browser automation, media handling, skills, plugins, heartbeats, and
+            scheduled tasks.
+          </li>
+        </ol>
+
+        <h2>Why It Matters</h2>
+        <p>
+          OpenClaw’s strongest idea is that the useful interface for AI is often
+          the interface people already use. A user can ask for a deployment from
+          Telegram, receive a PR review in chat, automate shopping or booking in
+          a browser, or have scheduled briefings appear without opening a laptop.
+          The agent becomes less like a website and more like a reachable
+          teammate.
+        </p>
+        <p>
+          The second important idea is continuity. OpenClaw keeps sessions,
+          transcripts, memory files, and workspace context so a conversation can
+          survive across turns and devices. It also supports compaction for long
+          sessions, which matters because real personal automation is not a
+          single prompt. It is an ongoing relationship with state.
+        </p>
+
+        <h2>Safety And Trust</h2>
+        <p>
+          OpenClaw is powerful because it can sit close to the user’s machine,
+          files, channels, and credentials. That also makes the safety model
+          central. The docs recommend conservative channel allowlists, dedicated
+          assistant numbers for personal messaging, careful heartbeat settings,
+          and explicit configuration for what tools can do.
+        </p>
+        <p>
+          This is the correct tradeoff. A gateway that can run commands, read
+          files, and send messages should default to constrained access, clear
+          routing, recoverable sessions, and auditable behavior. The product’s
+          value depends on the same thing that makes it risky: proximity to real
+          work.
+        </p>
+
+        <h2>Use Cases</h2>
+        <ul>
+          <li>Chat-native software development and deployment.</li>
+          <li>Pull request review loops delivered into Telegram or Slack.</li>
+          <li>Home automation, camera workflows, and hardware control.</li>
+          <li>Scheduled briefings, reminders, and recurring reports.</li>
+          <li>Personal assistant workflows across WhatsApp, Telegram, and Zalo.</li>
+          <li>Local skill creation for private datasets and household systems.</li>
+        </ul>
+
+        <h2>Takeaway</h2>
+        <p>
+          OpenClaw is best understood as infrastructure for personal agents. It
+          does not try to replace every app. It connects the apps and channels
+          people already use to agents that can remember context, use tools, and
+          complete work. If configured carefully, that makes it a practical
+          foundation for AI that lives in the user’s actual workflow instead of
+          beside it.
+        </p>
+      </section>
+    )
+  }
+
+  {
+    isVi && (
+      <section>
+        <h2>Tóm tắt</h2>
+        <p>
+          OpenClaw là một gateway tự host để biến các kênh chat thành giao diện
+          vận hành cho AI agent. Thay vì bắt người dùng sống trong một app AI
+          riêng, OpenClaw kết nối các bề mặt quen thuộc như Telegram, WhatsApp,
+          Discord, Slack, Signal, iMessage, Microsoft Teams, Zalo và nhiều kênh
+          khác với agent có thể dùng tools, files, memory, sessions,
+          automations và gửi tin nhắn ngược lại.
+        </p>
+
+        <h2>OpenClaw là gì</h2>
+        <p>
+          Ý tưởng cốt lõi là gateway. Tin nhắn đi vào từ một channel, OpenClaw
+          map nó tới một agent session, nạp context từ workspace, cho agent gọi
+          các tool đã cấu hình, rồi gửi câu trả lời hoặc media được tạo ra về
+          đúng bề mặt ban đầu. Nhờ vậy, chat thường ngày trở thành control plane
+          cho automation cá nhân và công việc coding.
+        </p>
+        <p>
+          Thực tế, OpenClaw không chỉ là một chat relay. Nó có onboarding,
+          gateway process, dashboard, session storage, workspace memory, skills,
+          heartbeats, cron jobs, media handling và channel pairing controls. Tổ
+          hợp này khiến OpenClaw giống một lớp vận hành agent hơn là một bot đơn
+          nhiệm.
+        </p>
+
+        <img
+          src="/assets/openclaw-workflow.svg"
+          alt="Sơ đồ workflow cho thấy tin nhắn đi vào OpenClaw, được map tới session, dùng context và tools, rồi trả lời lại channel."
+        />
+
+        <h2>Mô hình hệ thống</h2>
+        <p>OpenClaw được xây quanh năm lớp quan trọng:</p>
+        <ol>
+          <li>
+            <strong>Channels:</strong> các bề mặt nhắn tin như Telegram,
+            WhatsApp, Discord, Slack, Signal, Matrix, Teams, iMessage và Zalo.
+          </li>
+          <li>
+            <strong>Gateway:</strong> process quản lý routing, auth, delivery,
+            session state và kết nối channel.
+          </li>
+          <li>
+            <strong>Agents:</strong> worker chạy bằng model như Codex, Pi,
+            Claude hoặc agent tương thích OpenAI.
+          </li>
+          <li>
+            <strong>Workspace:</strong> instruction và memory local như AGENTS,
+            SOUL, TOOLS, IDENTITY, USER, HEARTBEAT, daily notes và project
+            files.
+          </li>
+          <li>
+            <strong>Tools and automations:</strong> shell, file access, browser
+            automation, media handling, skills, plugins, heartbeats và scheduled
+            tasks.
+          </li>
+        </ol>
+
+        <h2>Vì sao nó quan trọng</h2>
+        <p>
+          Ý tưởng mạnh nhất của OpenClaw là giao diện hữu ích cho AI thường là
+          giao diện người dùng đã dùng mỗi ngày. Người dùng có thể yêu cầu deploy
+          từ Telegram, nhận review PR ngay trong chat, tự động hoá mua sắm hoặc
+          đặt lịch bằng browser, hay nhận briefing định kỳ mà không cần mở
+          laptop. Agent lúc này giống một teammate có thể gọi tới hơn là một
+          website.
+        </p>
+        <p>
+          Ý tưởng quan trọng thứ hai là tính liên tục. OpenClaw giữ sessions,
+          transcripts, memory files và workspace context để cuộc trò chuyện có
+          thể tiếp tục qua nhiều lượt và nhiều thiết bị. Nó cũng hỗ trợ
+          compaction cho session dài, điều này quan trọng vì automation cá nhân
+          thật sự không phải một prompt đơn lẻ, mà là một quan hệ có state.
+        </p>
+
+        <h2>An toàn và độ tin cậy</h2>
+        <p>
+          OpenClaw mạnh vì nó ở rất gần máy, file, channel và credentials của
+          người dùng. Điều đó cũng khiến safety trở thành phần trung tâm. Tài
+          liệu khuyến nghị allowlist cho channel, dùng số assistant riêng cho
+          messaging cá nhân, cẩn trọng với heartbeat và cấu hình rõ tool được
+          phép làm gì.
+        </p>
+        <p>
+          Đây là tradeoff đúng. Một gateway có thể chạy lệnh, đọc file và gửi
+          tin nhắn nên mặc định theo hướng quyền hạn hạn chế, routing rõ ràng,
+          session có thể phục hồi và hành vi có thể audit. Giá trị của sản phẩm
+          đến từ chính điều khiến nó rủi ro: nằm sát công việc thật.
+        </p>
+
+        <h2>Use cases</h2>
+        <ul>
+          <li>Phát triển phần mềm và deploy qua chat.</li>
+          <li>Vòng lặp review pull request gửi về Telegram hoặc Slack.</li>
+          <li>Home automation, camera workflow và điều khiển phần cứng.</li>
+          <li>Briefing định kỳ, reminders và recurring reports.</li>
+          <li>Personal assistant qua WhatsApp, Telegram và Zalo.</li>
+          <li>Tạo local skill cho dữ liệu riêng và hệ thống trong nhà.</li>
+        </ul>
+
+        <h2>Kết luận</h2>
+        <p>
+          Có thể hiểu OpenClaw như hạ tầng cho personal agents. Nó không cố thay
+          thế mọi app. Nó kết nối những app và channel người dùng đã dùng với
+          agent có thể nhớ context, dùng tools và hoàn thành công việc. Nếu được
+          cấu hình cẩn thận, OpenClaw là nền tảng thực dụng cho AI sống trong
+          workflow thật của người dùng, thay vì đứng bên cạnh workflow đó.
+        </p>
+      </section>
+    )
+  }
+
+  <h2>Sources</h2>
+  <ul>
+    <li>
+      <a href="https://docs.openclaw.ai/">OpenClaw documentation homepage</a>
+    </li>
+    <li>
+      <a href="https://docs.openclaw.ai/start/openclaw">
+        OpenClaw personal assistant setup
+      </a>
+    </li>
+    <li>
+      <a href="https://docs.openclaw.ai/start/quickstart">
+        OpenClaw getting started
+      </a>
+    </li>
+    <li>
+      <a href="https://docs.openclaw.ai/start/showcase">
+        OpenClaw showcase
+      </a>
+    </li>
+  </ul>
+</div>
+
+<style>
+  .openclaw-paper img {
+    border-radius: 18px;
+  }
+</style>
