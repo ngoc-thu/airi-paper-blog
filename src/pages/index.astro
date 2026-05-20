@@ -34,14 +34,14 @@ const hasPosts = sortedPosts.length > 0;
     data-home-path={homePath}
     class="app-layout"
   >
-    <section id="hero" class="border-border border-b pt-14 pb-12 sm:pt-20">
+    <section id="hero" class="glass-panel mt-6 rounded-2xl p-6 sm:mt-8 sm:p-10">
       <p class="text-accent text-sm font-semibold tracking-[0.18em] uppercase">
-        Papers, notes, and quiet research
+        AIRI PAPER WORKSPACE
       </p>
       <h1
-        class="mt-5 max-w-3xl text-5xl leading-none font-semibold sm:text-7xl"
+        class="mt-5 max-w-3xl text-5xl leading-none font-bold sm:text-7xl"
       >
-        A calm archive for clear ideas.
+        A calm archive for working papers.
       </h1>
       <a
         target="_blank"
@@ -59,12 +59,12 @@ const hasPosts = sortedPosts.length > 0;
       </a>
 
       <p class="text-muted-foreground mt-8 max-w-2xl text-xl leading-8">
-        Airi paper is a focused English journal for papers, reading notes, and
-        technical essays. The layout stays quiet so the writing can do the work.
+        A dark, focused workspace for papers, reading notes, and technical
+        essays. Built to feel closer to a utility dashboard than a plain blog.
       </p>
       <p class="mt-6">
         <LinkButton
-          class="border-border hover:border-accent hover:text-accent border px-5 py-3 text-sm font-semibold tracking-wide uppercase"
+          class="border-border hover:border-accent hover:text-accent rounded-lg border bg-white/[0.04] px-5 py-3 text-sm font-semibold tracking-wide uppercase"
           href={getRelativeLocaleUrl(locale, "posts")}
         >
           Browse papers
@@ -84,7 +84,7 @@ const hasPosts = sortedPosts.length > 0;
 
     {
       !hasPosts && (
-        <section class="border-border border-b py-12">
+        <section class="glass-panel mt-6 rounded-2xl p-6">
           <p class="text-muted-foreground text-sm tracking-[0.18em] uppercase">
             Archive status
           </p>

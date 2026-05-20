@@ -52,12 +52,12 @@ export default defineConfig({
   },
   fonts: [
     {
-      name: "Newsreader",
+      name: "Inter",
       cssVariable: "--font-google-sans-code",
       provider: fontProviders.google(),
-      fallbacks: ["Georgia", "serif"],
+      fallbacks: ["system-ui", "sans-serif"],
       weights: [300, 400, 500, 600, 700],
-      styles: ["normal", "italic"],
+      styles: ["normal"],
       formats: ["woff", "ttf"],
     },
   ],

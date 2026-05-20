@@ -11,6 +11,10 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    background:
+      radial-gradient(circle at top left, rgba(110, 231, 249, 0.18), transparent 32rem),
+      radial-gradient(circle at top right, rgba(167, 139, 250, 0.18), transparent 28rem),
+      var(--color-background);
   }
 
   * {
@@ -29,7 +33,7 @@
 }
 
 @utility max-w-app {
-  @apply max-w-4xl;
+  @apply max-w-6xl;
 }
 
 @utility app-layout {
@@ -38,6 +42,10 @@
 
 @utility active-nav {
   @apply text-accent underline decoration-2 underline-offset-6;
+}
+
+@utility glass-panel {
+  @apply border-border bg-white/[0.06] shadow-2xl shadow-black/25 backdrop-blur-xl;
 }
 
 :target {
