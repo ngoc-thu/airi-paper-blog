@@ -32,6 +32,23 @@ export default {
     featured: "Featured",
     recentPosts: "Recent Posts",
     allPosts: "All Posts",
+    eyebrow: "AIRI PAPER WORKSPACE",
+    title: "A calm archive for working papers.",
+    description:
+      "A focused workspace for papers, reading notes, and technical essays. Built to feel closer to a utility dashboard than a plain blog.",
+    browsePapers: "Browse papers",
+  },
+  empty: {
+    archiveLabel: "Empty archive",
+    noPapersTitle: "No papers yet.",
+    noPapersDesc:
+      "Add a Markdown or MDX file to src/content/posts and it will appear here.",
+    noTagsLabel: "No tags",
+    noTagsTitle: "No paper tags yet.",
+    noTagsDesc: "Tags will appear here after the first paper is published.",
+    noDatedTitle: "No dated papers yet.",
+    noDatedDesc:
+      "Once a paper is published, it will be grouped here by year and month.",
   },
   footer: {
     copyright: "Copyright",
@@ -52,6 +69,31 @@ export default {
 
     searchTitle: "Search",
     searchDesc: "Search any article ...",
+
+    aboutTitle: "About",
+    aboutDesc: "A bit about me and this blog.",
+    aboutIntro1: "Airi paper is a minimal English blog built with",
+    aboutIntro2:
+      "Airi paper is designed for clear writing, fast pages, and a comfortable reading experience across desktop and mobile.",
+    aboutIntro3:
+      "Posts are written in Markdown or MDX, which keeps publishing simple while still supporting rich technical content.",
+    aboutFeaturesTitle: "Features",
+    aboutFeatureSeo: "SEO-friendly",
+    aboutFeaturePerformance: "Fast performance",
+    aboutFeatureTheme: "Light & dark mode",
+    aboutFeatureCustomizable: "Highly customizable",
+    aboutFeatureOrganizable: "Organizable blog posts",
+    aboutFeatureResponsive: "Responsive & accessible",
+    aboutFeatureSearch: "Static search with PageFind",
+    aboutFeatureOg: "Automatic social image generation",
+    aboutMore: "and so much more.",
+    aboutContactTitle: "Contact",
+    aboutContactDesc:
+      "This site is still being shaped. More writing and project notes will be added over time.",
+  },
+  language: {
+    label: "Language",
+    switchTo: "Tiếng Việt",
   },
   a11y: {
     skipToContent: "Skip to content",

@@ -30,6 +30,20 @@ export interface UIStrings {
     featured: string;
     recentPosts: string;
     allPosts: string;
+    eyebrow: string;
+    title: string;
+    description: string;
+    browsePapers: string;
+  };
+  empty: {
+    archiveLabel: string;
+    noPapersTitle: string;
+    noPapersDesc: string;
+    noTagsLabel: string;
+    noTagsTitle: string;
+    noTagsDesc: string;
+    noDatedTitle: string;
+    noDatedDesc: string;
   };
   footer: {
     copyright: string;
@@ -50,6 +64,28 @@ export interface UIStrings {
 
     searchTitle: string;
     searchDesc: string;
+
+    aboutTitle: string;
+    aboutDesc: string;
+    aboutIntro1: string;
+    aboutIntro2: string;
+    aboutIntro3: string;
+    aboutFeaturesTitle: string;
+    aboutFeatureSeo: string;
+    aboutFeaturePerformance: string;
+    aboutFeatureTheme: string;
+    aboutFeatureCustomizable: string;
+    aboutFeatureOrganizable: string;
+    aboutFeatureResponsive: string;
+    aboutFeatureSearch: string;
+    aboutFeatureOg: string;
+    aboutMore: string;
+    aboutContactTitle: string;
+    aboutContactDesc: string;
+  };
+  language: {
+    label: string;
+    switchTo: string;
   };
   a11y: {
     skipToContent: string;

@@ -1,19 +1,18 @@
-<div class="zo-paper" data-zo-paper data-lang="en">
-  <div class="zo-language-switch" aria-label="Article language">
-    <button type="button" data-lang-button="en" aria-pressed="true">
-      English
-    </button>
-    <button type="button" data-lang-button="vi" aria-pressed="false">
-      Tiếng Việt
-    </button>
-  </div>
+---
+const locale = Astro.currentLocale ?? "en";
+const isVi = locale === "vi";
+---
+
+<div class="zo-paper">
 
   <img
     src="/assets/zo-computer-hero.svg"
     alt="A visual map of Zo Computer as a personal cloud computer connected to files, tools, integrations, automations, and hosting."
   />
 
-  <section data-lang-panel="en">
+  {
+    !isVi && (
+  <section>
     <h2>Abstract</h2>
     <p>
       Zo Computer is positioning itself as a personal cloud computer: a
@@ -144,8 +143,12 @@
       infrastructure.
     </p>
   </section>
+    )
+  }
 
-  <section data-lang-panel="vi" hidden>
+  {
+    isVi && (
+  <section>
     <h2>Tóm tắt</h2>
     <p>
       Zo Computer đang định vị mình như một máy tính cá nhân trên cloud: một
@@ -271,6 +274,8 @@
       nhân.
     </p>
   </section>
+    )
+  }
 
   <h2>Sources</h2>
   <ul>
@@ -308,82 +313,7 @@
   </ul>
 </div>
 
-<script>
-  const paper = document.querySelector("[data-zo-paper]");
-  if (paper instanceof HTMLElement) {
-    const panels = paper.querySelectorAll("[data-lang-panel]");
-    const buttons = paper.querySelectorAll("[data-lang-button]");
-    const setLanguage = (language: string) => {
-      paper.dataset.lang = language;
-      panels.forEach(panel => {
-        if (panel instanceof HTMLElement) {
-          panel.hidden = panel.dataset.langPanel !== language;
-        }
-      });
-      buttons.forEach(button => {
-        if (button instanceof HTMLButtonElement) {
-          const isActive = button.dataset.langButton === language;
-          button.setAttribute("aria-pressed", String(isActive));
-        }
-      });
-    };
-
-    buttons.forEach(button => {
-      button.addEventListener("click", () => {
-        if (button instanceof HTMLButtonElement && button.dataset.langButton) {
-          setLanguage(button.dataset.langButton);
-        }
-      });
-    });
-  }
-</script>
-
 <style>
-  .zo-language-switch {
-    align-items: center;
-    background: rgba(255, 255, 255, 0.76);
-    border: 1px solid rgba(148, 163, 184, 0.34);
-    border-radius: 14px;
-    display: inline-flex;
-    gap: 0.35rem;
-    margin: 0 0 1.5rem;
-    padding: 0.35rem;
-  }
-
-  .zo-language-switch button {
-    border-radius: 10px;
-    color: rgb(71, 85, 105);
-    font: inherit;
-    font-size: 0.92rem;
-    font-weight: 700;
-    line-height: 1;
-    padding: 0.72rem 0.95rem;
-    transition:
-      background-color 160ms ease,
-      color 160ms ease;
-  }
-
-  .zo-language-switch button[aria-pressed="true"] {
-    background: linear-gradient(135deg, #2563eb, #22d3ee);
-    color: #ffffff;
-  }
-
-  :global(html[data-theme="dark"]) .zo-language-switch {
-    background: rgba(15, 23, 42, 0.78);
-    border-color: rgba(148, 163, 184, 0.24);
-  }
-
-  :global(html[data-theme="dark"]) .zo-language-switch button {
-    color: rgb(203, 213, 225);
-  }
-
-  :global(html[data-theme="dark"])
-    .zo-language-switch
-    button[aria-pressed="true"] {
-    background: linear-gradient(135deg, #22d3ee, #a78bfa);
-    color: #020617;
-  }
-
   .zo-paper img {
     border-radius: 18px;
   }

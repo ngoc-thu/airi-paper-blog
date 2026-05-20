@@ -26,6 +26,9 @@ const pathWithoutTrailingSlash =
     : relativePath;
 
 const currentPath = stripLocale(pathWithoutTrailingSlash, locale);
+const targetLocale = locale === "vi" ? "en" : "vi";
+const targetLanguagePath = currentPath === "/" ? "" : currentPath.replace(/^\//, "");
+const languageHref = getRelativeLocaleUrl(targetLocale, targetLanguagePath);
 
 const isActive = (path: string) => {
   const currentPathArray = currentPath.split("/").filter(p => p.trim());
@@ -145,6 +148,15 @@ const isActive = (path: string) => {
             </li>
           )
         }
+        <li class="col-span-1 flex items-center justify-center">
+          <a
+            href={languageHref}
+            class="focus-outline rounded-lg px-3 py-2 text-sm font-semibold text-muted-foreground hover:bg-slate-950/[0.06] hover:text-foreground dark:hover:bg-white/[0.075]"
+            aria-label={`${t.language.label}: ${t.language.switchTo}`}
+          >
+            {targetLocale.toUpperCase()}
+          </a>
+        </li>
         {
           features.lightAndDarkMode && (
             <li class="col-span-1 flex items-center justify-center">

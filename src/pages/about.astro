@@ -1,35 +1,49 @@
 ---
-import { getEntry, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import Main from "@/components/Main.astro";
 import Footer from "@/components/Footer.astro";
+import { useTranslations } from "@/i18n";
 import config from "@/config";
 
-const about = await getEntry("pages", "about");
-
-if (!about) {
-  throw new Error(
-    "Missing content entry: `about.md` or `about.mdx` in `src/content/pages/`"
-  );
-}
-
-const { Content } = await render(about);
+const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(locale);
 ---
 
 <Layout
-  title={`${about.data.title} | ${config.site.title}`}
-  description={about.data.description}
-  ogImage={about.data.ogImage}
-  canonicalURL={about.data.canonicalURL}
+  title={`${t.pages.aboutTitle} | ${config.site.title}`}
+  description={t.pages.aboutDesc}
 >
   <Header />
 
   <Breadcrumb />
 
-  <Main pageTitle={about.data.title} class="app-prose">
-    <Content />
+  <Main pageTitle={t.pages.aboutTitle} pageDesc={t.pages.aboutDesc} class="app-prose">
+    <p>
+      {t.pages.aboutIntro1}
+      <a href="https://astro.build/">Astro</a>
+      {" "}+{" "}
+      <a href="https://tailwindcss.com/">Tailwind CSS</a>.
+    </p>
+    <p>{t.pages.aboutIntro2}</p>
+    <p>{t.pages.aboutIntro3}</p>
+
+    <h2>{t.pages.aboutFeaturesTitle}</h2>
+    <ul>
+      <li>{t.pages.aboutFeatureSeo}</li>
+      <li>{t.pages.aboutFeaturePerformance}</li>
+      <li>{t.pages.aboutFeatureTheme}</li>
+      <li>{t.pages.aboutFeatureCustomizable}</li>
+      <li>{t.pages.aboutFeatureOrganizable}</li>
+      <li>{t.pages.aboutFeatureResponsive}</li>
+      <li>{t.pages.aboutFeatureSearch}</li>
+      <li>{t.pages.aboutFeatureOg}</li>
+    </ul>
+    <p>{t.pages.aboutMore}</p>
+
+    <h2>{t.pages.aboutContactTitle}</h2>
+    <p>{t.pages.aboutContactDesc}</p>
   </Main>
 
   <Footer />
