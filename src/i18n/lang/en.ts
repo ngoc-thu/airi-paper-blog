@@ -37,6 +37,19 @@ export default {
     description:
       "A focused workspace for papers, reading notes, and technical essays. Built to feel closer to a utility dashboard than a plain blog.",
     browsePapers: "Browse papers",
+    projects: "Projects",
+    projectsIntro:
+      "A few companion builds connected to this workspace, from a personal portfolio to a practical utility toolkit.",
+    projectSource: "Source",
+    projectDemo: "Live demo",
+    portfolioTitle: "Portfolio",
+    portfolioCategory: "Personal Portfolio Website",
+    portfolioDescription:
+      "A React-based personal portfolio showcasing academic projects, technical skills, and development experience in a single responsive website.",
+    toolhubTitle: "Basic Tools Web",
+    toolhubCategory: "Utility Web Application",
+    toolhubDescription:
+      "A practical browser-based toolkit with everyday utilities such as JSON formatting, QR generation, hashing, timestamp conversion, and lightweight document helpers.",
   },
   empty: {
     archiveLabel: "Empty archive",

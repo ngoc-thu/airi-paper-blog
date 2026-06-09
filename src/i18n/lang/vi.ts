@@ -37,6 +37,19 @@ export default {
     description:
       "Một workspace tập trung cho paper, ghi chú đọc và bài viết kỹ thuật. Thiết kế theo cảm giác utility dashboard hơn là blog thông thường.",
     browsePapers: "Xem papers",
+    projects: "Dự án",
+    projectsIntro:
+      "Một vài sản phẩm đi kèm với workspace này, từ portfolio cá nhân đến bộ công cụ tiện ích thực tế.",
+    projectSource: "Mã nguồn",
+    projectDemo: "Bản chạy thử",
+    portfolioTitle: "Portfolio",
+    portfolioCategory: "Website portfolio cá nhân",
+    portfolioDescription:
+      "Một website portfolio xây bằng React để giới thiệu các dự án học thuật, kỹ năng kỹ thuật và trải nghiệm phát triển trong một giao diện responsive.",
+    toolhubTitle: "Basic Tools Web",
+    toolhubCategory: "Ứng dụng web tiện ích",
+    toolhubDescription:
+      "Một bộ công cụ chạy trên trình duyệt cho các tác vụ hằng ngày như format JSON, tạo QR, băm chuỗi, đổi timestamp và một số tiện ích tài liệu gọn nhẹ.",
   },
   empty: {
     archiveLabel: "Kho lưu trữ trống",

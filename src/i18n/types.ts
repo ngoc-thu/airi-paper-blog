@@ -34,6 +34,16 @@ export interface UIStrings {
     title: string;
     description: string;
     browsePapers: string;
+    projects: string;
+    projectsIntro: string;
+    projectSource: string;
+    projectDemo: string;
+    portfolioTitle: string;
+    portfolioCategory: string;
+    portfolioDescription: string;
+    toolhubTitle: string;
+    toolhubCategory: string;
+    toolhubDescription: string;
   };
   empty: {
     archiveLabel: string;
