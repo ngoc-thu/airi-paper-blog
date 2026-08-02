@@ -93,7 +93,7 @@ export default {
     aboutFeaturesTitle: "Tính năng",
     aboutFeatureSeo: "Thân thiện SEO",
     aboutFeaturePerformance: "Hiệu năng nhanh",
-    aboutFeatureTheme: "Light & dark mode",
+    aboutFeatureTheme: "4 Theme giao diện (Dark, Light, Clay, Purple)",
     aboutFeatureCustomizable: "Dễ tuỳ biến",
     aboutFeatureOrganizable: "Dễ tổ chức bài viết",
     aboutFeatureResponsive: "Responsive & accessible",

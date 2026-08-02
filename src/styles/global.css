@@ -2,7 +2,10 @@
 @import "./theme.css";
 @import "./typography.css";
 
+@custom-variant light (&:where([data-theme=light], [data-theme=light] *));
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant clay (&:where([data-theme=clay], [data-theme=clay] *));
+@custom-variant purple (&:where([data-theme=purple], [data-theme=purple] *));
 
 @layer base {
   html {
@@ -12,8 +15,15 @@
   body {
     @apply bg-background text-foreground antialiased;
     background:
-      radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 34rem),
-      radial-gradient(circle at top right, rgba(34, 211, 238, 0.16), transparent 28rem),
+      radial-gradient(circle at top left, rgba(8, 145, 178, 0.08), transparent 28rem),
+      radial-gradient(circle at top right, rgba(124, 58, 237, 0.08), transparent 24rem),
+      var(--color-background);
+  }
+
+  html[data-theme="light"] body {
+    background:
+      radial-gradient(circle at top left, rgba(8, 145, 178, 0.08), transparent 28rem),
+      radial-gradient(circle at top right, rgba(124, 58, 237, 0.08), transparent 24rem),
       var(--color-background);
   }
 
@@ -22,6 +32,22 @@
       radial-gradient(circle at top left, rgba(110, 231, 249, 0.18), transparent 32rem),
       radial-gradient(circle at top right, rgba(167, 139, 250, 0.18), transparent 28rem),
       var(--color-background);
+  }
+
+  html[data-theme="clay"] body {
+    background:
+      radial-gradient(circle at 20% 10%, rgba(244, 114, 182, 0.12), transparent 35rem),
+      radial-gradient(circle at 80% 90%, rgba(96, 165, 250, 0.12), transparent 35rem),
+      radial-gradient(circle at 50% 50%, rgba(167, 139, 250, 0.08), transparent 40rem),
+      var(--color-background);
+  }
+
+  html[data-theme="purple"] body {
+    background:
+      radial-gradient(ellipse 70% 45% at 10% 5%, rgba(100, 55, 180, 0.16) 0%, transparent 60%),
+      radial-gradient(ellipse 55% 50% at 88% 12%, rgba(145, 80, 200, 0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 60% at 50% 90%, rgba(80, 30, 140, 0.14) 0%, transparent 65%),
+      linear-gradient(160deg, #110d1e 0%, #0e0b18 50%, #0c0a16 100%);
   }
 
   * {
@@ -52,7 +78,7 @@
 }
 
 @utility glass-panel {
-  @apply border-border bg-white/75 shadow-xl shadow-slate-200/70 backdrop-blur-xl dark:bg-white/[0.06] dark:shadow-2xl dark:shadow-black/25;
+  @apply border-border bg-white/75 shadow-xl shadow-slate-200/70 backdrop-blur-xl dark:bg-white/[0.06] dark:shadow-2xl dark:shadow-black/25 clay:bg-white/70 clay:shadow-xl clay:shadow-purple-900/10 purple:bg-white/[0.05] purple:shadow-2xl purple:shadow-black/40;
 }
 
 :target {

@@ -13,13 +13,13 @@
 /* Light theme values */
 :root,
 [data-theme="light"] {
-  --background: #f7f9fc;
-  --foreground: #172033;
-  --accent: #2563eb;
+  --background: #f5f7fb;
+  --foreground: #111827;
+  --accent: #0891b2;
   --accent-foreground: #ffffff;
   --muted: #e8edf5;
-  --muted-foreground: #5b677d;
-  --border: #dbe3ef;
+  --muted-foreground: #4b5563;
+  --border: #d9e0ea;
 }
 
 /* Dark theme values */
@@ -27,8 +27,30 @@
   --background: #07111f;
   --foreground: #eef6ff;
   --accent: #6ee7f9;
-  --accent-foreground: #ffffff;
+  --accent-foreground: #07111f;
   --muted: rgba(255, 255, 255, 0.08);
   --muted-foreground: #a9bad1;
   --border: rgba(255, 255, 255, 0.14);
+}
+
+/* Clay theme values (Pastel Soft Clay) */
+[data-theme="clay"] {
+  --background: #f3e8f8;
+  --foreground: #1e1230;
+  --accent: #7c3aed;
+  --accent-foreground: #ffffff;
+  --muted: rgba(167, 139, 250, 0.14);
+  --muted-foreground: #5c4a78;
+  --border: rgba(167, 139, 250, 0.3);
+}
+
+/* Purple theme values (Refined Midnight Amethyst) */
+[data-theme="purple"] {
+  --background: #0e0b18;
+  --foreground: #ede8f5;
+  --accent: #b18ee8;
+  --accent-foreground: #0e0b18;
+  --muted: rgba(167, 112, 220, 0.12);
+  --muted-foreground: #9b90b8;
+  --border: rgba(167, 112, 220, 0.22);
 }

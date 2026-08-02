@@ -102,9 +102,9 @@ const rssHref = getRelativeLocaleUrl(
     <script is:inline>
       (function () {
         const stored = localStorage.getItem("theme");
-        const theme = stored ?? "light";
+        const validThemes = ["light", "dark", "clay", "purple"];
+        const theme = (stored && validThemes.includes(stored)) ? stored : "dark";
         document.firstElementChild?.setAttribute("data-theme", theme);
-        // Expose value so theme.ts can skip re-detection.
         window.__theme = { value: theme };
       })();
     </script>

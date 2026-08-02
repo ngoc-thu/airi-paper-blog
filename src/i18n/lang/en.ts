@@ -93,7 +93,7 @@ export default {
     aboutFeaturesTitle: "Features",
     aboutFeatureSeo: "SEO-friendly",
     aboutFeaturePerformance: "Fast performance",
-    aboutFeatureTheme: "Light & dark mode",
+    aboutFeatureTheme: "4 Themes (Dark, Light, Clay, Purple)",
     aboutFeatureCustomizable: "Highly customizable",
     aboutFeatureOrganizable: "Organizable blog posts",
     aboutFeatureResponsive: "Responsive & accessible",
