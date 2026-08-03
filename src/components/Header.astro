@@ -43,25 +43,95 @@ const isActive = (path: string) => {
   {t.a11y.skipToContent}
 </a>
 
-<header
-  class="app-layout flex flex-col items-center justify-between sm:flex-row"
->
+<header class="app-layout flex flex-col items-center justify-between sm:flex-row">
   <div
-    class="border-border bg-background/75 relative mt-4 flex w-full items-baseline justify-between rounded-xl border px-4 py-3 backdrop-blur-xl sm:items-center"
+    class="border-border bg-background/75 relative mt-4 flex w-full flex-wrap items-center justify-between rounded-xl border px-4 py-3 backdrop-blur-xl"
   >
     <a
       href={getRelativeLocaleUrl(locale, "")}
-      class="absolute py-1 text-xl leading-8 font-bold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
+      class="py-1 text-xl leading-8 font-bold whitespace-nowrap sm:text-2xl sm:leading-none"
     >
       {site.title}
     </a>
-    <nav
-      id="nav-menu"
-      class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"
-    >
+
+    <div class="flex items-center gap-1 sm:gap-2">
+      <!-- Language Switcher -->
+      <a
+        href={languageHref}
+        class="focus-outline rounded-lg px-2.5 py-1.5 text-xs font-semibold text-muted-foreground hover:bg-slate-950/[0.06] hover:text-foreground sm:px-3 sm:py-2 sm:text-sm dark:hover:bg-white/[0.075]"
+        aria-label={`${t.language.label}: ${t.language.switchTo}`}
+      >
+        {targetLocale.toUpperCase()}
+      </a>
+
+      <!-- Theme Button & Dropdown Menu -->
+      {
+        features.lightAndDarkMode && (
+          <div class="relative flex items-center justify-center">
+            <button
+              id="theme-btn"
+              class="focus-outline hover:[&>svg]:stroke-accent relative flex size-9 items-center justify-center rounded-lg p-1 text-muted-foreground hover:bg-slate-950/[0.06] hover:text-foreground sm:size-8 dark:hover:bg-white/[0.075]"
+              title={t.a11y.toggleTheme}
+              aria-label="Toggle theme menu"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <span id="theme-btn-icon" class="text-base leading-none sm:text-sm">🎨</span>
+            </button>
+
+            <div
+              id="theme-menu"
+              class="border-border bg-background/95 absolute right-0 top-full z-50 mt-2 hidden min-w-40 flex-col gap-1 rounded-xl border p-1.5 shadow-2xl backdrop-blur-2xl"
+              role="menu"
+            >
+              <button
+                type="button"
+                data-theme-option="clay"
+                class="theme-menu-item flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-xs font-semibold text-muted-foreground transition-colors hover:bg-slate-950/[0.06] hover:text-foreground dark:hover:bg-white/[0.075]"
+                role="menuitem"
+              >
+                <span class="text-sm">🎨</span>
+                <span>Clay Style</span>
+              </button>
+
+              <button
+                type="button"
+                data-theme-option="dark"
+                class="theme-menu-item flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-xs font-semibold text-muted-foreground transition-colors hover:bg-slate-950/[0.06] hover:text-foreground dark:hover:bg-white/[0.075]"
+                role="menuitem"
+              >
+                <span class="text-sm">🌙</span>
+                <span>Dark Mode</span>
+              </button>
+
+              <button
+                type="button"
+                data-theme-option="light"
+                class="theme-menu-item flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-xs font-semibold text-muted-foreground transition-colors hover:bg-slate-950/[0.06] hover:text-foreground dark:hover:bg-white/[0.075]"
+                role="menuitem"
+              >
+                <span class="text-sm">☀️</span>
+                <span>Light Mode</span>
+              </button>
+
+              <button
+                type="button"
+                data-theme-option="purple"
+                class="theme-menu-item flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-xs font-semibold text-muted-foreground transition-colors hover:bg-slate-950/[0.06] hover:text-foreground dark:hover:bg-white/[0.075]"
+                role="menuitem"
+              >
+                <span class="text-sm">🔮</span>
+                <span>Purple Style</span>
+              </button>
+            </div>
+          </div>
+        )
+      }
+
+      <!-- Mobile Hamburger Button -->
       <button
         id="menu-btn"
-        class="focus-outline self-end p-2 sm:hidden"
+        class="focus-outline p-2 sm:hidden"
         aria-label={t.a11y.openMenu}
         aria-expanded="false"
         aria-controls="menu-items"
@@ -71,154 +141,90 @@ const isActive = (path: string) => {
         <IconX id="close-icon" class="hidden" />
         <IconMenuDeep id="menu-icon" />
       </button>
-      <ul
-        id="menu-items"
-        class="mt-4 hidden w-44 grid-cols-2 place-content-center gap-2 text-sm tracking-wide uppercase sm:mt-0 sm:flex sm:w-auto sm:gap-x-2 sm:gap-y-0 sm:[&>li]:h-8 [&>li>a]:block [&>li>a]:rounded-lg [&>li>a]:px-4 [&>li>a]:py-3 [&>li>a]:text-center [&>li>a]:font-semibold [&>li>a]:text-muted-foreground [&>li>a]:hover:bg-slate-950/[0.06] [&>li>a]:hover:text-foreground sm:[&>li>a]:px-3 sm:[&>li>a]:py-1.5 dark:[&>li>a]:hover:bg-white/[0.075]"
+
+      <!-- Navigation Links -->
+      <nav
+        id="nav-menu"
+        class="flex items-center max-sm:w-full"
       >
-        <li class="col-span-2">
-          <a
-            href={getRelativeLocaleUrl(locale, "posts")}
-            class:list={{ "active-nav": isActive("/posts") }}
-          >
-            {t.nav.posts}
-          </a>
-        </li>
-        <li class="col-span-2">
-          <a
-            href={getRelativeLocaleUrl(locale, "tags")}
-            class:list={{ "active-nav": isActive("/tags") }}
-          >
-            {t.nav.tags}
-          </a>
-        </li>
-        <li class="col-span-2">
-          <a
-            href={getRelativeLocaleUrl(locale, "about")}
-            class:list={{ "active-nav": isActive("/about") }}
-          >
-            {t.nav.about}
-          </a>
-        </li>
-        {
-          features.showArchives && (
-            <li class="col-span-2">
-              <LinkButton
-                href={getRelativeLocaleUrl(locale, "archives")}
-                class:list={[
-                  "focus-outline flex size-full justify-center rounded-lg p-3 text-muted-foreground hover:bg-slate-950/[0.06] hover:text-foreground sm:relative sm:size-8 sm:p-0 dark:hover:bg-white/[0.075]",
-                  { "active-nav": isActive("/archives") },
-                ]}
-                title={t.nav.archives}
-                aria-label={t.nav.archives}
-              >
-                <IconArchive class="hidden sm:absolute sm:top-1/2 sm:left-1/2 sm:block sm:size-6 sm:-translate-x-1/2 sm:-translate-y-1/2" />
-                <span class="sm:sr-only">{t.nav.archives}</span>
-                {isActive("/archives") && (
-                  <IconUnderline
-                    aria-hidden="true"
-                    class="scale-125 max-sm:hidden sm:absolute sm:bottom-0 sm:w-6"
-                  />
-                )}
-              </LinkButton>
-            </li>
-          )
-        }
-        {
-          features.search !== false && (
-            <li class="col-span-1 flex items-center justify-center">
-              <LinkButton
-                href={getRelativeLocaleUrl(locale, "search")}
-                class:list={[
-                  "focus-outline relative size-8 rounded-lg text-muted-foreground hover:bg-slate-950/[0.06] hover:text-foreground dark:hover:bg-white/[0.075]",
-                ]}
-                title={t.nav.search}
-                aria-label={t.nav.search}
-              >
-                <IconSearch class="absolute top-1/2 left-1/2 size-6 -translate-x-1/2 -translate-y-1/2" />
-                <span class="sr-only">{t.nav.search}</span>
-                {isActive("/search") && (
-                  <IconUnderline
-                    aria-hidden="true"
-                    class="absolute bottom-0 w-6 scale-125 max-sm:inset-s-2"
-                  />
-                )}
-              </LinkButton>
-            </li>
-          )
-        }
-        <li class="col-span-1 flex items-center justify-center">
-          <a
-            href={languageHref}
-            class="focus-outline rounded-lg px-3 py-2 text-sm font-semibold text-muted-foreground hover:bg-slate-950/[0.06] hover:text-foreground dark:hover:bg-white/[0.075]"
-            aria-label={`${t.language.label}: ${t.language.switchTo}`}
-          >
-            {targetLocale.toUpperCase()}
-          </a>
-        </li>
-        {
-          features.lightAndDarkMode && (
-            <li class="relative col-span-1 flex items-center justify-center">
-              <button
-                id="theme-btn"
-                class="focus-outline hover:[&>svg]:stroke-accent relative flex size-12 items-center justify-center rounded-lg p-2 text-muted-foreground hover:bg-slate-950/[0.06] hover:text-foreground sm:size-8 sm:p-1 dark:hover:bg-white/[0.075]"
-                title={t.a11y.toggleTheme}
-                aria-label="Toggle theme menu"
-                aria-expanded="false"
-                aria-haspopup="true"
-              >
-                <span id="theme-btn-icon" class="text-base leading-none sm:text-sm">🌙</span>
-              </button>
-
-              <div
-                id="theme-menu"
-                class="border-border bg-background/95 absolute right-0 top-full z-50 mt-2 hidden min-w-40 flex-col gap-1 rounded-xl border p-1.5 shadow-2xl backdrop-blur-2xl"
-                role="menu"
-              >
-                <button
-                  type="button"
-                  data-theme-option="dark"
-                  class="theme-menu-item flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-xs font-semibold text-muted-foreground transition-colors hover:bg-slate-950/[0.06] hover:text-foreground dark:hover:bg-white/[0.075]"
-                  role="menuitem"
+        <ul
+          id="menu-items"
+          class="mt-4 hidden w-full grid-cols-2 place-content-center gap-2 text-sm tracking-wide uppercase max-sm:w-full sm:mt-0 sm:flex sm:w-auto sm:gap-x-2 sm:gap-y-0 sm:[&>li]:h-8 [&>li>a]:block [&>li>a]:rounded-lg [&>li>a]:px-4 [&>li>a]:py-3 [&>li>a]:text-center [&>li>a]:font-semibold [&>li>a]:text-muted-foreground [&>li>a]:hover:bg-slate-950/[0.06] [&>li>a]:hover:text-foreground sm:[&>li>a]:px-3 sm:[&>li>a]:py-1.5 dark:[&>li>a]:hover:bg-white/[0.075]"
+        >
+          <li class="max-sm:col-span-2">
+            <a
+              href={getRelativeLocaleUrl(locale, "posts")}
+              class:list={{ "active-nav": isActive("/posts") }}
+            >
+              {t.nav.posts}
+            </a>
+          </li>
+          <li class="max-sm:col-span-2">
+            <a
+              href={getRelativeLocaleUrl(locale, "tags")}
+              class:list={{ "active-nav": isActive("/tags") }}
+            >
+              {t.nav.tags}
+            </a>
+          </li>
+          <li class="max-sm:col-span-2">
+            <a
+              href={getRelativeLocaleUrl(locale, "about")}
+              class:list={{ "active-nav": isActive("/about") }}
+            >
+              {t.nav.about}
+            </a>
+          </li>
+          {
+            features.showArchives && (
+              <li class="max-sm:col-span-2">
+                <LinkButton
+                  href={getRelativeLocaleUrl(locale, "archives")}
+                  class:list={[
+                    "focus-outline flex size-full justify-center rounded-lg p-3 text-muted-foreground hover:bg-slate-950/[0.06] hover:text-foreground sm:relative sm:size-8 sm:p-0 dark:hover:bg-white/[0.075]",
+                    { "active-nav": isActive("/archives") },
+                  ]}
+                  title={t.nav.archives}
+                  aria-label={t.nav.archives}
                 >
-                  <span class="text-sm">🌙</span>
-                  <span>Dark Mode</span>
-                </button>
-
-                <button
-                  type="button"
-                  data-theme-option="light"
-                  class="theme-menu-item flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-xs font-semibold text-muted-foreground transition-colors hover:bg-slate-950/[0.06] hover:text-foreground dark:hover:bg-white/[0.075]"
-                  role="menuitem"
+                  <IconArchive class="hidden sm:absolute sm:top-1/2 sm:left-1/2 sm:block sm:size-6 sm:-translate-x-1/2 sm:-translate-y-1/2" />
+                  <span class="sm:sr-only">{t.nav.archives}</span>
+                  {isActive("/archives") && (
+                    <IconUnderline
+                      aria-hidden="true"
+                      class="scale-125 max-sm:hidden sm:absolute sm:bottom-0 sm:w-6"
+                    />
+                  )}
+                </LinkButton>
+              </li>
+            )
+          }
+          {
+            features.search !== false && (
+              <li class="max-sm:col-span-2 flex items-center justify-center">
+                <LinkButton
+                  href={getRelativeLocaleUrl(locale, "search")}
+                  class:list={[
+                    "focus-outline relative size-8 rounded-lg text-muted-foreground hover:bg-slate-950/[0.06] hover:text-foreground dark:hover:bg-white/[0.075]",
+                  ]}
+                  title={t.nav.search}
+                  aria-label={t.nav.search}
                 >
-                  <span class="text-sm">☀️</span>
-                  <span>Light Mode</span>
-                </button>
-
-                <button
-                  type="button"
-                  data-theme-option="clay"
-                  class="theme-menu-item flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-xs font-semibold text-muted-foreground transition-colors hover:bg-slate-950/[0.06] hover:text-foreground dark:hover:bg-white/[0.075]"
-                  role="menuitem"
-                >
-                  <span class="text-sm">🎨</span>
-                  <span>Clay Style</span>
-                </button>
-
-                <button
-                  type="button"
-                  data-theme-option="purple"
-                  class="theme-menu-item flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-xs font-semibold text-muted-foreground transition-colors hover:bg-slate-950/[0.06] hover:text-foreground dark:hover:bg-white/[0.075]"
-                  role="menuitem"
-                >
-                  <span class="text-sm">🔮</span>
-                  <span>Purple Style</span>
-                </button>
-              </div>
-            </li>
-          )
-        }
-      </ul>
-    </nav>
+                  <IconSearch class="absolute top-1/2 left-1/2 size-6 -translate-x-1/2 -translate-y-1/2" />
+                  <span class="sr-only">{t.nav.search}</span>
+                  {isActive("/search") && (
+                    <IconUnderline
+                      aria-hidden="true"
+                      class="absolute bottom-0 w-6 scale-125 max-sm:inset-s-2"
+                    />
+                  )}
+                </LinkButton>
+              </li>
+            )
+          }
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>
 

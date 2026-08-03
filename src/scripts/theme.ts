@@ -12,7 +12,7 @@ const THEME_ICONS: Record<Theme, string> = {
 function getPreferredTheme(): Theme {
   const stored = localStorage.getItem(THEME_KEY) as Theme | null;
   if (stored && THEMES.includes(stored)) return stored;
-  return "dark";
+  return "clay";
 }
 
 let themeValue: Theme =

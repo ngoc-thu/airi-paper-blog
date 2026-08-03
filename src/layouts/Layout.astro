@@ -104,7 +104,7 @@ const rssHref = getRelativeLocaleUrl(
       (function () {
         const stored = localStorage.getItem("theme");
         const validThemes = ["light", "dark", "clay", "purple"];
-        const theme = (stored && validThemes.includes(stored)) ? stored : "dark";
+        const theme = (stored && validThemes.includes(stored)) ? stored : "clay";
         document.firstElementChild?.setAttribute("data-theme", theme);
         window.__theme = { value: theme };
       })();
