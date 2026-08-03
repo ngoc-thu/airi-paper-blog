@@ -3,9 +3,9 @@ import { defineAstroPaperConfig } from "./src/types/config";
 export default defineAstroPaperConfig({
   site: {
     url: "https://airi-paper-blog-ten.vercel.app/",
-    title: "Airi paper",
-    description: "A minimal, responsive and SEO-friendly English blog.",
-    author: "Airi",
+    title: "Ti Paper",
+    description: "A minimal, responsive and SEO-friendly blog workspace.",
+    author: "Ti Paper",
     profile: "https://airi-paper-blog-ten.vercel.app/",
     ogImage: "default-og.jpg",
     lang: "en",

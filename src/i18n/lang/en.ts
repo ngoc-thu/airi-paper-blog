@@ -32,7 +32,7 @@ export default {
     featured: "Featured",
     recentPosts: "Recent Posts",
     allPosts: "All Posts",
-    eyebrow: "AIRI PAPER WORKSPACE",
+    eyebrow: "TI PAPER WORKSPACE",
     title: "A calm archive for working papers.",
     description:
       "A focused workspace for papers, reading notes, and technical essays. Built to feel closer to a utility dashboard than a plain blog.",
@@ -85,9 +85,9 @@ export default {
 
     aboutTitle: "About",
     aboutDesc: "A bit about me and this blog.",
-    aboutIntro1: "Airi paper is a minimal English blog built with",
+    aboutIntro1: "Ti Paper is a minimal blog built with",
     aboutIntro2:
-      "Airi paper is designed for clear writing, fast pages, and a comfortable reading experience across desktop and mobile.",
+      "Ti Paper is designed for clear writing, fast pages, and a comfortable reading experience across desktop and mobile.",
     aboutIntro3:
       "Posts are written in Markdown or MDX, which keeps publishing simple while still supporting rich technical content.",
     aboutFeaturesTitle: "Features",

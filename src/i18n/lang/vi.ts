@@ -32,7 +32,7 @@ export default {
     featured: "Nổi bật",
     recentPosts: "Bài mới",
     allPosts: "Tất cả bài viết",
-    eyebrow: "AIRI PAPER WORKSPACE",
+    eyebrow: "TI PAPER WORKSPACE",
     title: "Một kho lưu trữ gọn gàng cho các paper đang làm.",
     description:
       "Một workspace tập trung cho paper, ghi chú đọc và bài viết kỹ thuật. Thiết kế theo cảm giác utility dashboard hơn là blog thông thường.",
@@ -85,9 +85,9 @@ export default {
 
     aboutTitle: "Giới thiệu",
     aboutDesc: "Một chút về trang blog này.",
-    aboutIntro1: "Airi paper là một blog tối giản được xây bằng",
+    aboutIntro1: "Ti Paper là một blog tối giản được xây bằng",
     aboutIntro2:
-      "Airi paper được thiết kế cho lối viết rõ ràng, tải trang nhanh và trải nghiệm đọc dễ chịu trên cả desktop lẫn mobile.",
+      "Ti Paper được thiết kế cho lối viết rõ ràng, tải trang nhanh và trải nghiệm đọc dễ chịu trên cả desktop lẫn mobile.",
     aboutIntro3:
       "Bài viết dùng Markdown hoặc MDX, giúp việc xuất bản đơn giản nhưng vẫn hỗ trợ nội dung kỹ thuật phong phú.",
     aboutFeaturesTitle: "Tính năng",
